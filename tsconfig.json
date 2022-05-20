@@ -17,7 +17,7 @@
       "vite/client",
       "vite-plugin-pages/client",
       "vite-plugin-pwa/client",
-      "unplugin-icons/type/vue"
+      /* "unplugin-icons/type/vue" */
     ],
     "paths": {
       "~/*": ["src/*"],
