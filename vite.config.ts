@@ -119,9 +119,9 @@ export default defineConfig({
       includeAssets: ["favicon.ico", "robots.txt"],
       manifest: {
         // You can change this name into your own
-        name: "Blog Starter",
-        short_name: "rosterbox",
-        description: "A blog starter with Vite.js",
+        name: "zed8",
+        short_name: "zed8",
+        description: "zed8 blog with Vite",
         theme_color: "#347f76",
         icons: [
           {
