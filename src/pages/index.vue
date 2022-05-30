@@ -9,7 +9,7 @@ const latest = computed(() => {
 });
 // Get articles data
 const articles = computed(() => {
-  return getArticles(6);
+  return getArticles(3);
 });
 </script>
 

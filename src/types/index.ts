@@ -39,6 +39,12 @@ export interface PaginateData {
   pageSize: number
 }
 
+export interface PaginateProjectsData {
+  projects: any[]
+  currentPage: number
+  pageSize: number
+}
+
 export interface Paginate {
   totalItems: number
   currentPage: number

@@ -79,6 +79,10 @@ export default defineConfig({
           dir: "posts",
           baseRoute: "posts",
         },
+        /* {
+          dir: "projects",
+          baseRoute: "projects",
+        }, */
       ],
       extensions: ["vue", "md"],
       extendRoute(route) {

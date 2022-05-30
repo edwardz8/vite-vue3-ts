@@ -16,11 +16,11 @@
       visualization. Professionally, I've been living in the headless CMS world and have
       taken a strong interest in structured content and the JamStack. I like to teach and
       demonstrate the knowledge I have gained during my time as a developer. I also like
-      long single file components written in tsx within Vue 3.x and React Native repos and
-      really fancy as many functional components I can write until I'm lost. I intend to
-      learn Rust and/or C++ and work with embedded systems; I've read a lot of the docs
+      long single file components written in tsx within Vue 3.x and React Native repos 📱
+      and really fancy as many functional components I can write until I'm lost. I intend
+      to learn Rust and/or C++ and work with embedded systems; I've read a lot of the docs
       and followed a few tutorials on the 2 lower-level languages but have not yet had the
-      chance yet to truly delve into them.
+      chance yet to truly delve into them. 🐳
     </p>
 
     <p class="mb-4 text-gray-300">
@@ -29,7 +29,7 @@
       efficient developer while using it. I know the basic commands like toggling the
       menu, switching between tabs and all the trivial things, but I've found the barrier
       to entry after the setup, such as configuring syntax, LSP and tree-sitters, to be a
-      time-consuming drag so I'm still stuck in VS Code land indefinitely.
+      time-consuming drag so I'm still stuck in VS Code land indefinitely. 🌲
     </p>
 
     <p className="mb-4 text-gray-300">

@@ -1,5 +1,5 @@
 import { usePaginate } from "~/utils/"
-import type { RelatedArticles, PaginateData } from "~/types"
+import type { RelatedArticles, PaginateData, PaginateProjectsData } from "~/types"
 import { useRouter } from "vue-router"
 
 // Get data frontmatter using function getRoutes from useRouter
@@ -13,6 +13,14 @@ const getDataRoutes = () => {
 export const getParams = (value: string) => {
   const router = useRouter()
   return router.currentRoute.value.params[value]
+}
+
+export const getProjects = (limit?: number) => {
+  const isProjects = getDataRoutes()
+    .filter((data: any) => Object.keys(data.meta).length !== 0)
+    .slice(0, limit)
+    .sort((a: any, b: any) => +new Date(b.meta.frontmatter.date) - +new Date(a.meta.frontmatter.date))
+  return isProjects
 }
 
 // Filter data routes to get the articles data and limit as needed
@@ -83,5 +91,27 @@ export const paginateData = ({ articles, currentPage, pageSize }: PaginateData) 
     mid,
     endPage,
     listArticles,
+  }
+}
+
+// Filter paginate projects data
+export const paginateProjectsData = ({ projects, currentPage, pageSize }: PaginateProjectsData) => {
+  const getProjects = projects
+  const { startPage, endPage, startIndex, endIndex } = usePaginate({
+    totalItems: getProjects.length,
+    currentPage: currentPage,
+    pageSize: pageSize,
+  })
+
+  const prev: number = currentPage - 1 >= startPage ? currentPage - 1 : 0
+  const next: number = currentPage + 1 <= endPage ? currentPage + 1 : 0
+  const mid = Array(prev, currentPage, next).filter((value) => value > startPage && value < endPage)
+
+  const listProjects = getProjects.slice(startIndex, endIndex + 1)
+  return {
+    startPage,
+    mid,
+    endPage,
+    listProjects,
   }
 }

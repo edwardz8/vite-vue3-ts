@@ -51,13 +51,17 @@ const dataNavbar: NavbarMenu[] = [
     name: "Home",
     to: "/",
   },
-  {
-    name: "Articles",
-    to: "/articles",
-  },
+  /* {
+    name: "Work",
+    to: "/projects",
+  }, */
   {
     name: "About",
     to: "/about",
+  },
+  {
+    name: "Articles",
+    to: "/articles",
   },
 ];
 </script>
@@ -135,14 +139,19 @@ const dataNavbar: NavbarMenu[] = [
           <carbon-home class="mr-2" />Home
         </li>
       </router-link>
-      <router-link to="/articles" class="bg-blog-50 dark:bg-blog-500 p-2 mb-2 rounded-md">
+      <!-- <router-link to="/projects" class="bg-blog-50 dark:bg-blog-500 p-2 mb-2 rounded-md">
         <li class="flex flex-row flex-wrap items-center dark:text-blog-100">
-          <carbon-table-of-contents class="mr-2" />Articles
+          <carbon-table-of-contents class="mr-2" />Work
         </li>
-      </router-link>
+      </router-link> -->
       <router-link to="/about" class="bg-blog-50 dark:bg-blog-500 p-2 mb-2 rounded-md">
         <li class="flex flex-row flex-wrap items-center dark:text-blog-100">
           <uil-document-layout-center class="mr-2" />About
+        </li>
+      </router-link>
+      <router-link to="/articles" class="bg-blog-50 dark:bg-blog-500 p-2 mb-2 rounded-md">
+        <li class="flex flex-row flex-wrap items-center dark:text-blog-100">
+          <carbon-table-of-contents class="mr-2" />Articles
         </li>
       </router-link>
     </ul>

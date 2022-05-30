@@ -15,13 +15,13 @@ declare module '@vue/runtime-core' {
     CarbonWarningAltFilled: typeof import('~icons/carbon/warning-alt-filled')['default']
     Counter: typeof import('./src/components/Button/Counter.vue')['default']
     Footer: typeof import('./src/components/Footer/Footer.vue')['default']
-    HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     ImageThree: typeof import('./src/components/Image/ImageThree.vue')['default']
     ImageTwo: typeof import('./src/components/Image/ImageTwo.vue')['default']
     Latest: typeof import('./src/components/Articles/Latest.vue')['default']
     Navbar: typeof import('./src/components/Navigation/Navbar.vue')['default']
     Paginate: typeof import('./src/components/Pagination/Paginate.vue')['default']
     Post: typeof import('./src/components/Articles/Post.vue')['default']
+    Project: typeof import('./src/components/Projects/Project.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Share: typeof import('./src/components/Button/Share.vue')['default']
@@ -29,6 +29,7 @@ declare module '@vue/runtime-core' {
     ToTopBtn: typeof import('./src/components/Button/ToTopBtn.vue')['default']
     UilDocumentLayoutCenter: typeof import('~icons/uil/document-layout-center')['default']
     UilGithub: typeof import('~icons/uil/github')['default']
+    WorkPost: typeof import('./src/components/Projects/WorkPost.vue')['default']
   }
 }
 
