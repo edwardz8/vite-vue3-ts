@@ -4,6 +4,7 @@ import WindiCSS from "vite-plugin-windicss"
 import Pages from "vite-plugin-pages"
 import Components from "unplugin-vue-components/vite"
 import Markdown from "vite-plugin-md"
+// @ts-expect-error
 import matter from "gray-matter"
 import Icons from "unplugin-icons/vite"
 import IconsResolver from "unplugin-icons/resolver"
@@ -12,9 +13,7 @@ import PurgeIcons from "vite-plugin-purge-icons"
 import { VitePWA } from "vite-plugin-pwa"
 import Prism from "markdown-it-prism"
 import anchor from "markdown-it-anchor"
-// @ts-expect-error
 import toc from "markdown-it-table-of-contents"
-// @ts-expect-error
 import attr from "markdown-it-link-attributes"
 import { resolve } from "path"
 import { readFileSync } from "fs"
@@ -83,7 +82,6 @@ export default defineConfig({
       ],
       extensions: ["vue", "md"],
       extendRoute(route) {
-        // Get inspired from anthony fu"s personal website
         // https://github.com/antfu/antfu.me
         const path = resolve(__dirname, route.component.slice(1))
         const md = readFileSync(path, "utf-8")

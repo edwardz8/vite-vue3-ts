@@ -1,15 +1,16 @@
 <script setup lang="ts">
-import { latestArticle, getArticles } from "~/data"
-import { limitString, slug } from "~/utils"
+import { latestArticle, getArticles } from "~/data";
+import { limitString, slug } from "~/utils";
+import { computed } from "vue";
 
 // Get latest article
 const latest = computed(() => {
-  return latestArticle()
-})
+  return latestArticle();
+});
 // Get articles data
 const articles = computed(() => {
-  return getArticles(6)
-})
+  return getArticles(6);
+});
 </script>
 
 <template>
@@ -30,7 +31,9 @@ const articles = computed(() => {
   </div>
   <div class="flex flex-col flex-wrap mb-2 mt-12 px-4 lg:px-0">
     <div class="grid inline-grid grid-cols-2 mb-5">
-      <h1 class="text-3xl font-bold text-blog-700 dark:text-dark-repulser-400">All post</h1>
+      <h1 class="text-3xl font-bold text-blog-700 dark:text-dark-repulser-400">
+        All post
+      </h1>
       <router-link
         to="/articles"
         class="cursor-pointer text-right my-auto text-blog-700 dark:text-dark-repulser-400"

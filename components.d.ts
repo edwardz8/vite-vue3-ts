@@ -5,15 +5,12 @@ import '@vue/runtime-core'
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    AntLike: typeof import('~icons/ant-design/like-outlined')['default']
     Article: typeof import('./src/components/Articles/Article.vue')['default']
     CarbonBackToTop: typeof import('~icons/carbon/back-to-top')['default']
     CarbonCalendar: typeof import('~icons/carbon/calendar')['default']
     CarbonHome: typeof import('~icons/carbon/home')['default']
     CarbonMenu: typeof import('~icons/carbon/menu')['default']
-    CarbonMoon: typeof import('~icons/carbon/moon')['default']
     CarbonSearch: typeof import('~icons/carbon/search')['default']
-    CarbonSun: typeof import('~icons/carbon/sun')['default']
     CarbonTableOfContents: typeof import('~icons/carbon/table-of-contents')['default']
     Counter: typeof import('./src/components/Button/Counter.vue')['default']
     Footer: typeof import('./src/components/Footer/Footer.vue')['default']

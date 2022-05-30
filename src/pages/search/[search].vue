@@ -1,32 +1,32 @@
 <script setup lang="ts">
-import { getArticlesSearch, getParams, paginateData } from "~/data"
-import { unslug, slug, limitString } from "~/utils"
+import { ref, computed } from "vue";
+import { getArticlesSearch, getParams, paginateData } from "~/data";
+import { unslug, slug, limitString } from "~/utils";
 
-
-const searchParams: any = getParams("search")
-const search = getArticlesSearch([unslug(searchParams)])
+const searchParams: any = getParams("search");
+const search = getArticlesSearch([unslug(searchParams)]);
 
 // Get data search paginate
-const currentPage = ref<number>(1)
+const currentPage = ref<number>(1);
 const dataSearch = computed(() => {
   const paginate = paginateData({
     articles: search,
     currentPage: currentPage.value,
     pageSize: 3,
-  })
-  return paginate
-})
+  });
+  return paginate;
+});
 
 // Pagination
 const clickStartPage = () => {
-  currentPage.value = dataSearch.value.startPage
-}
+  currentPage.value = dataSearch.value.startPage;
+};
 const clickPaginate = (paginate: number) => {
-  currentPage.value = paginate
-}
+  currentPage.value = paginate;
+};
 const clickEndPage = () => {
-  currentPage.value = dataSearch.value.endPage
-}
+  currentPage.value = dataSearch.value.endPage;
+};
 </script>
 
 <template>

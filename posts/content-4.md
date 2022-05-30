@@ -1,5 +1,5 @@
 ---
-name: Title Four
+name: Coming Soon
 thumbnail: "../src/assets/baseball-drip-orange.png"
 date: 2022-01-28
 description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum excepturi, officia doloremque est necessitatibus magni recusandae id ipsum nam non, maiores ducimus placeat quos vero quis odit modi voluptatem, obcaecati vel distinctio sit quas iure libero. Corporis numquam in molestias?
