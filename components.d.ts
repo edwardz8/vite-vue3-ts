@@ -7,7 +7,6 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     Article: typeof import('./src/components/Articles/Article.vue')['default']
     CarbonBackToTop: typeof import('~icons/carbon/back-to-top')['default']
-    CarbonCalendar: typeof import('~icons/carbon/calendar')['default']
     CarbonHome: typeof import('~icons/carbon/home')['default']
     CarbonMenu: typeof import('~icons/carbon/menu')['default']
     CarbonSearch: typeof import('~icons/carbon/search')['default']

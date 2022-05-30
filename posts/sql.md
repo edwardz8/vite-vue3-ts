@@ -1,6 +1,6 @@
 ---
 name: Populate SQL Database with CSV 🏒
-thumbnail: "../src/assets/baseball-drip-pink.png"
+thumbnail: baseball-drip-pink.png
 date: 2022-01-02
 description: Populate SQL database with some values from a CSV file.
 tags: ["sql"]
