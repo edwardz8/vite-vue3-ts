@@ -1,31 +1,32 @@
-<script setup lang="ts">
-import { getArticlesTags, getParams, paginateData } from "~/data"
-import { slug, limitString } from "~/utils"
+<script setup>
+import { getArticlesTags, getParams, paginateData } from "~/data";
+import { slug, limitString } from "~/utils";
+import { ref } from "vue";
 
-const paramsTag: any = getParams("tag")
+const paramsTag = getParams("tag");
 
 // Get tags paginate data
-const currentPage = ref<number>(1)
-const tags = getArticlesTags([paramsTag])
+const currentPage = ref(1);
+const tags = getArticlesTags([paramsTag]);
 const dataTags = computed(() => {
   const paginate = paginateData({
     articles: tags,
     currentPage: currentPage.value,
     pageSize: 3,
-  })
-  return paginate
-})
+  });
+  return paginate;
+});
 
 // Pagination
 const clickStartPage = () => {
-  currentPage.value = dataTags.value.startPage
-}
-const clickPaginate = (paginate: number) => {
-  currentPage.value = paginate
-}
+  currentPage.value = dataTags.value.startPage;
+};
+const clickPaginate = (paginate) => {
+  currentPage.value = paginate;
+};
 const clickEndPage = () => {
-  currentPage.value = dataTags.value.endPage
-}
+  currentPage.value = dataTags.value.endPage;
+};
 </script>
 
 <template>

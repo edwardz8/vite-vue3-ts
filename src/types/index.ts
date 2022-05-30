@@ -17,6 +17,7 @@ export interface DataShare {
   media?: string
   likes?: number 
   liked?: boolean
+  meta?: string 
 }
 
 export interface NavbarMenu {
@@ -28,10 +29,12 @@ export interface RelatedArticles {
   limit: number
   tags: Array<string>
   name: string
+  meta?: string
+  description?: string 
 }
 
 export interface PaginateData {
-  articles: Array<unknown>
+  articles: any[]
   currentPage: number
   pageSize: number
 }

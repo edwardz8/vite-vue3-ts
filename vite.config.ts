@@ -13,7 +13,8 @@ import PurgeIcons from "vite-plugin-purge-icons"
 import { VitePWA } from "vite-plugin-pwa"
 import Prism from "markdown-it-prism"
 import anchor from "markdown-it-anchor"
-import toc from "markdown-it-table-of-contents"
+// import toc from "markdown-it-table-of-contents"
+// @ts-expect-error
 import attr from "markdown-it-link-attributes"
 import { resolve } from "path"
 import { readFileSync } from "fs"
@@ -63,8 +64,7 @@ export default defineConfig({
               target: "_blank",
               rel: "noopener",
             },
-          }),
-          md.use(toc)
+          })
       },
     }),
 

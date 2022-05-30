@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/camelcase */ /* eslint-disable camelcase */
+
 <script setup lang="ts">
 import { ref, computed } from "vue";
 import { getArticlesSearch, getParams, paginateData } from "~/data";
@@ -7,7 +9,7 @@ const searchParams: any = getParams("search");
 const search = getArticlesSearch([unslug(searchParams)]);
 
 // Get data search paginate
-const currentPage = ref<number>(1);
+const currentPage = ref(1);
 const dataSearch = computed(() => {
   const paginate = paginateData({
     articles: search,
@@ -21,7 +23,7 @@ const dataSearch = computed(() => {
 const clickStartPage = () => {
   currentPage.value = dataSearch.value.startPage;
 };
-const clickPaginate = (paginate: number) => {
+const clickPaginate = (paginate) => {
   currentPage.value = paginate;
 };
 const clickEndPage = () => {
@@ -42,7 +44,6 @@ const clickEndPage = () => {
           v-for="(data, i) in dataSearch.listArticles"
           :key="i"
           :image="data.meta.frontmatter.thumbnail"
-          :alt="`blog-banner-${slug(data.meta.frontmatter.name)}`"
           :tags="data.meta.frontmatter.tags"
           :date="`${new Date(data.meta.frontmatter.date).toDateString()}`"
           :title="data.meta.frontmatter.name"

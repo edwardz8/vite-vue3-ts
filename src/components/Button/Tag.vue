@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { capitalizeStr } from "~/utils"
+import { capitalizeStr } from "~/utils";
 const props = defineProps<{
-  tags: Array<string>
-}>()
+  tags: Array<string>;
+}>();
 </script>
 
 <template>

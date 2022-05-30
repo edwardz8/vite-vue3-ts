@@ -1,10 +1,10 @@
-<script setup lang="ts">
-import { ref } from "vue";
+<script setup>
+import { ref, computed } from "vue";
 import { getArticles, paginateData } from "~/data";
 import { slug, limitString } from "~/utils";
 
 // Get articles data
-const currentPage = ref<number>(1);
+const currentPage = ref(1);
 
 const articles = computed(() => {
   const articles = getArticles();
@@ -20,8 +20,7 @@ const articles = computed(() => {
 const clickStartPage = () => {
   currentPage.value = articles.value.startPage;
 };
-const clickPaginate = (paginate: number) => {
-  console.log(paginate);
+const clickPaginate = (paginate) => {
   currentPage.value = paginate;
 };
 const clickEndPage = () => {

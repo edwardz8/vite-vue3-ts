@@ -18,36 +18,36 @@ export const getParams = (value: string) => {
 // Filter data routes to get the articles data and limit as needed
 export const getArticles = (limit?: number) => {
   const isPosts = getDataRoutes()
-    .filter((data) => Object.keys(data.meta).length !== 0)
+    .filter((data: any) => Object.keys(data.meta).length !== 0)
     .slice(0, limit)
-    .sort((a, b) => +new Date(b.meta.frontmatter.date) - +new Date(a.meta.frontmatter.date))
+    .sort((a: any, b: any) => +new Date(b.meta.frontmatter.date) - +new Date(a.meta.frontmatter.date))
   return isPosts
 }
 
 // Get the latest article
 export const latestArticle = () => {
   const frontmatter = getDataRoutes()
-    .filter((data) => data.meta.frontmatter !== undefined)
-    .map((data) => data.meta.frontmatter)
-    .sort((a, b) => +new Date(b.date) - +new Date(a.date))
-  const latestPost: unknown = frontmatter[0]
+    .filter((data: any) => data.meta.frontmatter !== undefined)
+    .map((data: any) => data.meta.frontmatter)
+    .sort((a: any, b: any) => +new Date(b.date) - +new Date(a.date))
+  const latestPost: any = frontmatter[0]
   return latestPost
 }
 
 // Filter data to get specific articles based on tags
 export const getArticlesTags = (tags: Array<string>) => {
-  const isPosts = getDataRoutes().filter((data) => Object.keys(data.meta).length !== 0)
+  const isPosts = getDataRoutes().filter((data: any) => Object.keys(data.meta).length !== 0)
   const filter = isPosts.filter((tag: any) =>
-    tags.every((filter) => tag.meta.frontmatter.tags.includes(filter)),
+    tags.every((filter: any) => tag.meta.frontmatter.tags.includes(filter)),
   )
   return filter
 }
 
 // Filter data to get data of search
 export const getArticlesSearch = (tags: Array<string>) => {
-  const isPosts = getDataRoutes().filter((data) => Object.keys(data.meta).length !== 0)
+  const isPosts = getDataRoutes().filter((data: any) => Object.keys(data.meta).length !== 0)
   const filter = isPosts.filter((tag: any) =>
-    tags.every((filter) => tag.meta.frontmatter.name.includes(filter)),
+    tags.every((filter: any) => tag.meta.frontmatter.name.includes(filter)),
   )
   return filter
 }
@@ -55,7 +55,7 @@ export const getArticlesSearch = (tags: Array<string>) => {
 // Filter data to get related articles data
 export const getRelatedArticles = ({ limit, tags, name }: RelatedArticles) => {
   const isPosts = getDataRoutes()
-    .filter((data) => Object.keys(data.meta).length !== 0)
+    .filter((data: any) => Object.keys(data.meta).length !== 0)
     .filter((data: any) => data.meta.frontmatter.name !== name)
     .slice(0, limit)
   const filter = isPosts.filter((tag: any) =>

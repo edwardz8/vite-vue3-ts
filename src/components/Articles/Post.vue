@@ -1,27 +1,26 @@
 <script setup lang="ts">
-import { isClient, useEventListener } from "@vueuse/core"
-import { getRelatedArticles } from "~/data"
-import { slug, limitString } from "~/utils"
-import type { DataShare } from "~/types"
+import { isClient, useEventListener } from "@vueuse/core";
+import { getRelatedArticles } from "~/data";
+import { slug, limitString } from "~/utils";
+import type { DataShare } from "~/types";
 import { computed, onMounted } from "vue";
 import { useRoute } from "vue-router";
 
-const { frontmatter } = defineProps<{ frontmatter: any }>()
+const { frontmatter } = defineProps<{ frontmatter }>();
 
 const relatedArticles = computed(() => {
-  
   return getRelatedArticles({
     limit: 4,
     tags: frontmatter.tags,
     name: frontmatter.name,
-  })
-})
+  });
+});
 
-const router = useRoute()
-const routes = router.fullPath
-let url: string = ""
+const router = useRoute();
+const routes = router.fullPath;
+let url = "";
 if (typeof window !== "undefined") {
-  url = window.location.origin + routes
+  url = window.location.origin + routes;
 }
 const dataShare: DataShare[] = [
   {
@@ -30,9 +29,10 @@ const dataShare: DataShare[] = [
     name: "Twitter",
     url: url,
     title: frontmatter.name,
+    description: frontmatter.description,
     hashtags: "test",
-  }
-]
+  },
+];
 
 /* 
   Inspired by https://github.com/antfu/antfu.me/blob/HEAD/src/components/Post.vue
@@ -40,25 +40,25 @@ const dataShare: DataShare[] = [
 if (isClient) {
   const navigate = () => {
     if (location.hash) {
-      document.querySelector(location.hash)?.scrollIntoView({ behavior: "smooth" })
+      document.querySelector(location.hash)?.scrollIntoView({ behavior: "smooth" });
     }
-  }
+  };
 
-  useEventListener(window, "hashchange", navigate, false)
+  useEventListener(window, "hashchange", navigate, false);
 
   onMounted(() => {
     document.querySelectorAll('a[href^="#"]').forEach((a) => {
       a.addEventListener("click", (e) => {
-        e.preventDefault()
-        const href = a.getAttribute("href")
-        history.replaceState({}, "", href)
-        navigate()
-      })
-    })
+        e.preventDefault();
+        const href = a.getAttribute("href");
+        history.replaceState({}, "", href);
+        navigate();
+      });
+    });
 
-    navigate()
-    setTimeout(navigate, 500)
-  })
+    navigate();
+    setTimeout(navigate, 500);
+  });
 }
 </script>
 
@@ -117,11 +117,13 @@ if (isClient) {
         <Disqus />
       </client-only> -->
     </div>
-    <div class="flex flex-wrap flex-col px-4 lg:px-0">
+    <!-- <div class="flex flex-wrap flex-col px-4 lg:px-0">
       <h1 class="mb-5 mt-8 text-3xl text-blog-700 dark:text-dark-repulser-400 font-bold">
         Related Articles
       </h1>
-      <div class="mx-auto grid inline-grid gap-4 mb-5 lg:grid-cols-3 sm:grid-cols-1 md:grid-cols-2">
+      <div
+        class="mx-auto grid inline-grid gap-4 mb-5 lg:grid-cols-3 sm:grid-cols-1 md:grid-cols-2"
+      >
         <Article
           v-for="(data, i) in relatedArticles"
           :key="i"
@@ -129,12 +131,12 @@ if (isClient) {
           :alt="`blog-banner-${slug(data.meta.frontmatter.name)}`"
           :tags="data.meta.frontmatter.tags"
           :date="`${new Date(data.meta.frontmatter.date).toDateString()}`"
-          :title="data.meta.frontmatter.name"
+          :title="data?.meta.frontmatter.name"
           :to="data.path"
           :description="limitString(data.meta.frontmatter.description, 200)"
           :to-tags="`/tags/${data.meta.frontmatter.tags}`"
         />
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
