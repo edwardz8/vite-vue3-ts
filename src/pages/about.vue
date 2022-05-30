@@ -23,15 +23,25 @@
       chance yet to truly delve into them.
     </p>
 
+    <p class="mb-4 text-gray-300">
+      I primarily code using Visual Studio, but over the past year or so I've been
+      spending time with Vim/Neovim but I'm still not yet to the point where I'm a more
+      efficient developer while using it. I know the basic commands like toggling the
+      menu, switching between tabs and all the other basics but I've found the barrier to
+      entry after the basics, such as configuring syntax, LSP and tree-sitters, to be a
+      time-consuming drag so I'm still stuck in VS Code land indefinitely.
+    </p>
+
     <p className="mb-4 text-gray-300">
       When I'm not learning and experimenting with the latest and greatest technologies,
-      building sites with TypeScript and GraphQL and Rest APIs, I'm usually either
-      studying and completing coding challenges on sites like LeetCode or on the golf
-      course ( I'm currently between a 6 and 4 handicap ) working on my game, playing
-      fantasy sports or spending time with my lovely wife, Alicia. I was also a published
-      fiction writer many moons ago and hope to delve back into writing fiction one of
-      these days but for now it's only non-fiction script tags for me. To learn more about
-      me you can find my resume on
+      building sites with TypeScript, Node.js and GraphQL and Rest APIs, I'm usually
+      either studying and completing coding challenges on sites like LeetCode, playing
+      video games with some friends (my games of choice at the moment are: Star Wars:
+      Fallen Order and MLB The Show), on the golf course ( I'm currently between a 6 and 4
+      handicap ) working on my game, playing fantasy sports or spending time with my
+      lovely wife, Alicia. I was also a published fiction writer many moons ago and hope
+      to delve back into writing fiction one of these days but for now it's only
+      non-fiction script tags for me. To learn more about me you can find my resume on
       <a
         href="https://www.linkedin.com/in/zach-edwards-905b105a/"
         className="font-bold transition-colors hover:text-sky-800"
@@ -41,6 +51,18 @@
         LinkedIn</a
       >
     </p>
+
+    <div>
+      <p class="mb-4 text-gray-300">Currently Reading:</p>
+      <ul class="mb-4 text-gray-300">
+        <li>The Lord of the Rings</li>
+        <li>Dune</li>
+        <li>Mastering WordPress Websites</li>
+        <li>The Rust-lang Book</li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
   </div>
 </template>
 
