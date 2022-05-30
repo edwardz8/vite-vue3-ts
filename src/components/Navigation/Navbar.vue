@@ -1,49 +1,49 @@
 <script setup lang="ts">
-import { isDark, toggleDark, slug } from "~/utils"
-import type { NavbarMenu } from "~/types"
+import { isDark, toggleDark, slug } from "~/utils";
+import type { NavbarMenu } from "~/types";
 import { useToggle, onKeyStroke, onClickOutside } from "@vueuse/core";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 
 // https://vueuse.org/shared/useToggle/
-const [search, setSearch] = useToggle()
-const [open, setOpen] = useToggle()
+const [search, setSearch] = useToggle();
+const [open, setOpen] = useToggle();
 
 // https://vueuse.org/core/onKeyStroke/
 onKeyStroke("Escape", () => {
-  search.value = false
-})
+  search.value = false;
+});
 onKeyStroke("Escape", () => {
-  open.value = false
-})
+  open.value = false;
+});
 
 // https://vueuse.org/core/onClickOutside/
-const modalSearch = ref(null)
+const modalSearch = ref(null);
 onClickOutside(modalSearch, (e) => {
-  search.value = false
-})
+  search.value = false;
+});
 
-const navbottom = ref(null)
+const navbottom = ref(null);
 onClickOutside(navbottom, (e) => {
-  open.value = false
-})
+  open.value = false;
+});
 
 // Search article
-const searchArticle = ref("")
-const router = useRouter()
+const searchArticle = ref("");
+const router = useRouter();
 const goSearch = () => {
   if (searchArticle.value) {
     router.push(`/search/${slug(searchArticle.value)}`).then(() => {
-      search.value = false
-      searchArticle.value = ""
-    })
+      search.value = false;
+      searchArticle.value = "";
+    });
   }
-}
+};
 
 // Hide navbottom after page has been changed
 router.afterEach(() => {
-  open.value = false
-})
+  open.value = false;
+});
 
 // Navbar list
 const dataNavbar: NavbarMenu[] = [
@@ -59,7 +59,7 @@ const dataNavbar: NavbarMenu[] = [
     name: "About",
     to: "/about",
   },
-]
+];
 </script>
 
 <template>
@@ -71,7 +71,7 @@ const dataNavbar: NavbarMenu[] = [
     <div class="max-w-screen-lg mx-auto h-full flex flex-row items-center space-x-4">
       <div class="logo flex-1">
         <router-link to="/" class="font-bold lg:tracking-wide text-2xl">
-          Blog
+          zed8.dev
         </router-link>
       </div>
       <div class="flex flex-wrap items-center">
@@ -109,7 +109,9 @@ const dataNavbar: NavbarMenu[] = [
           rel="noreferrer"
           title="repository github"
         >
-          <uil-github class="flex cursor-pointer text-blog-700 dark:text-dark-repulser-400" />
+          <uil-github
+            class="flex cursor-pointer text-blog-700 dark:text-dark-repulser-400"
+          />
         </a>
         <carbon-menu
           class="cursor-pointer text-blog-700 dark:text-dark-repulser-400 ml-5 sm:block lg:hidden"
@@ -121,7 +123,7 @@ const dataNavbar: NavbarMenu[] = [
   </nav>
 
   <!-- Nav bottom -->
-    <!-- :class="open ? "block translate-y-0" : "hidden translate-y-full"" -->
+  <!-- :class="open ? "block translate-y-0" : "hidden translate-y-full"" -->
   <nav
     v-if="open"
     ref="navbottom"
@@ -133,10 +135,7 @@ const dataNavbar: NavbarMenu[] = [
           <carbon-home class="mr-2" />Home
         </li>
       </router-link>
-      <router-link
-        to="/articles"
-        class="bg-blog-50 dark:bg-blog-500 p-2 mb-2 rounded-md"
-      >
+      <router-link to="/articles" class="bg-blog-50 dark:bg-blog-500 p-2 mb-2 rounded-md">
         <li class="flex flex-row flex-wrap items-center dark:text-blog-100">
           <carbon-table-of-contents class="mr-2" />Articles
         </li>
@@ -169,10 +168,7 @@ const dataNavbar: NavbarMenu[] = [
     </div>
     <!-- :class="open ? "lg:hidden" : ''" -->
   </div>
-  <div
-    v-if="search || open"
-    class="fixed inset-0 z-40 opacity-60 bg-dark-200"
-  />
+  <div v-if="search || open" class="fixed inset-0 z-40 opacity-60 bg-dark-200" />
 </template>
 
 <style lang="scss">
