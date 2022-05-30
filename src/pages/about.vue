@@ -3,8 +3,10 @@
 <template>
   <h1 class="text-blog-700 dark:text-dark-repulser-400 px-4 lg:px-0">About me</h1>
 
-  <div class="px-4 mt-4">
+  <div class="px-4 mt-4 lg:px-0">
     <p class="mb-4 text-gray-300">Welcome, I'm Zach.</p>
+
+    <img src="/assets/me.png" class="profile" />
 
     <p class="mb-4 text-gray-300">
       I've worked with JavaScript & TypeScript & SQL - along with several other languages
@@ -41,3 +43,12 @@
     </p>
   </div>
 </template>
+
+<style>
+.profile {
+  max-width: 100px;
+  max-height: 100px;
+  border-radius: 50px;
+  margin-bottom: 3rem;
+}
+</style>
