@@ -27,8 +27,8 @@
       I primarily code using Visual Studio, but over the past year or so I've been
       spending time with Vim/Neovim but I'm still not yet to the point where I'm a more
       efficient developer while using it. I know the basic commands like toggling the
-      menu, switching between tabs and all the other basics but I've found the barrier to
-      entry after the basics, such as configuring syntax, LSP and tree-sitters, to be a
+      menu, switching between tabs and all the trivial things, but I've found the barrier
+      to entry after the setup, such as configuring syntax, LSP and tree-sitters, to be a
       time-consuming drag so I'm still stuck in VS Code land indefinitely.
     </p>
 
@@ -48,17 +48,17 @@
         target="_blank"
         rel="noopener"
       >
-        LinkedIn</a
-      >
+        LinkedIn 🛸
+      </a>
     </p>
 
     <div class="mt-6">
-      <h4 class="mb-4 text-gray-300">Currently Reading:</h4>
+      <h4 class="mb-4 text-gray-300">📚 Currently Reading 📚</h4>
       <ul class="mb-4 text-gray-300">
         <li>The Lord of the Rings</li>
-        <li>Dune</li>
+        <li>Dune 📖</li>
         <li>Mastering WordPress Websites</li>
-        <li>The Rust-lang Book</li>
+        <li>The Rust-lang Book 🦀</li>
         <li></li>
         <li></li>
       </ul>
