@@ -52,8 +52,8 @@
       >
     </p>
 
-    <div>
-      <p class="mb-4 text-gray-300">Currently Reading:</p>
+    <div class="mt-6">
+      <h4 class="mb-4 text-gray-300">Currently Reading:</h4>
       <ul class="mb-4 text-gray-300">
         <li>The Lord of the Rings</li>
         <li>Dune</li>
