@@ -37,11 +37,11 @@
       building sites with TypeScript, Node.js and GraphQL and Rest APIs, I'm usually
       either studying and completing coding challenges on sites like LeetCode, playing
       video games with some friends (my games of choice at the moment are: Star Wars:
-      Fallen Order and MLB The Show), on the golf course ( I'm currently between a 6 and 4
-      handicap ) working on my game, playing fantasy sports or spending time with my
-      lovely wife, Alicia. I was also a published fiction writer many moons ago and hope
-      to delve back into writing fiction one of these days but for now it's only
-      non-fiction script tags for me. To learn more about me you can find my resume on
+      Fallen Order, PGA2K and MLBTheShow), on the golf course ( I'm currently between a 6
+      and 4 handicap ) working on my game or playing fantasy sports. I was also a
+      published fiction writer many moons ago and hope to delve back into writing fiction
+      one of these days but for now it's only non-fiction script tags for me. To learn
+      more about me you can find my resume on
       <a
         href="https://www.linkedin.com/in/zach-edwards-905b105a/"
         className="font-bold transition-colors hover:text-sky-800"

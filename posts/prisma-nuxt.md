@@ -1,6 +1,6 @@
 ---
 name: Prisma + Nuxt.js 3 🏈
-thumbnail: /assets/baseball-drip-purple.png
+thumbnail: /assets/rosterbox.png
 date: 2022-03-28
 description: Add the Prisma database client to a server-side rendered application using the latest version of Nuxt and write back and front-end code within the same project!
 tags: ["vue", "typescript", "nuxt"]

@@ -1,6 +1,6 @@
 ---
 name: Dynamic Routing with Vue 3 🏒
-thumbnail: /assets/baseball-drip-orange.png
+thumbnail: /assets/rosterbox-football-player-0.png
 date: 2021-12-02
 description: How to simplify dynamic routing while using the Composition API in Vue 3, Vuex 4 and Vue Router.
 tags: ["router", "vue"]
