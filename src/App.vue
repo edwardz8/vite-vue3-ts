@@ -4,7 +4,7 @@ import { useHead } from "@vueuse/head";
 
 // https://github.com/vueuse/head
 useHead({
-  title: "zed8.dev",
+  title: "rosterbox",
   meta: [
     {
       name: "description",

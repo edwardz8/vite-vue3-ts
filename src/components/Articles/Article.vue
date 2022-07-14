@@ -18,7 +18,7 @@ const props = defineProps({
   <router-link :to="to" class="max-w-lg rounded shadow-lg card-hover flex flex-col">
     <img
       :src="$props.image"
-      class="h-auto object-cover w-full"
+      class="h-auto object-cover w-full article-img"
       :alt="$props.alt"
       loading="lazy"
     />
@@ -50,5 +50,9 @@ const props = defineProps({
   &:hover {
     top: -10px;
   }
+}
+
+.article-img {
+  min-height: 235px;
 }
 </style>
