@@ -4,7 +4,7 @@ import { useHead } from "@vueuse/head";
 
 // https://github.com/vueuse/head
 useHead({
-  title: "rosterbox",
+  title: "zach",
   meta: [
     {
       name: "description",
