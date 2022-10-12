@@ -45,7 +45,7 @@ If you are following along with DigitalOcean, create an account and '+ New Proje
 
 You should be prompted to a new project page where you can select 'Get started with a Droplet'. Once the new database is created you will be able to grab the connection string from the project page and paste it into your *.env* file.
 
-```
+```js
 // .env
 
 DATABASE_URL="postgresql://doadmin:XXXX_xxxxxxxx@xxxx-xx-xxx-12345-0.b.db.ondigitalocean.com:25060/defaultdb?sslmode=require"
@@ -61,7 +61,7 @@ The *DATABASE_URL* variable will be referenced once the Prisma schema is created
 Instead of installing everything altogher and just throwing everything at you at one time, I will do my best to try and break it up by relevancy and group installs by category, keeping UI dependencies together, auth dependencies together, Prisma, etc.
 
 
-```
+```js
 npx nuxi init nuxt3-app 
 
 $ npm i @nuxtjs/tailwindcss -D
@@ -74,7 +74,7 @@ $ npm i @vueuse/core preline bcrypt uuid
 
 Inside nuxt.config.ts add the required modules and also tailwindcss to the content object:
 
-```
+```js
 modules: ['@nuxtjs/tailwindcss'],
 content:{
     tailwindcss: {
@@ -86,7 +86,7 @@ content:{
 
 Then, in the root directory, create a __main.css__ file within __/assets/css/__. Of course, include any font you prefer.
 
-```
+```js
 // assets/css/main.css
 
 @import url('https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@1,800,500,100,700,400,300,200,900&f[]=satoshi@1,900,700,500,301,701,300,501,401,901,400,2&display=swap');
@@ -103,7 +103,7 @@ Let's quickly jump to defining the types relating to users and authentication fi
 
 ##### IUser.ts 
 
-```
+```js
 // types/IUser.ts
 
 export interface IUser {
@@ -120,7 +120,7 @@ export interface IUser {
 
 ##### IRegistration.ts
 
-```
+```js
 // types/IRegistration.ts
 
 export type IRegistrationErrors = {
@@ -143,7 +143,7 @@ export type RegistrationRequest = {
 
 ##### ISession.ts 
 
-```
+```js
 import { IUser } from "./IUser"
 
 export interface ISession {
@@ -156,7 +156,7 @@ export interface ISession {
 
 ##### InputValidation.ts
 
-```
+```js
 type InputValidation = {
     key: string
     isBlank: boolean
@@ -172,7 +172,7 @@ type InputValidation = {
 
 ##### FormValidation.ts
 
-```
+```js
 type FormValidation = {
     hasErrors: boolean
     errors?: Map<string, { check: InputValidation; }>
@@ -192,7 +192,7 @@ We will circle back to types after user authentication is in order.
 
 #### Install Prisma dependencies
 
-```
+```js
 $ npm i prisma -D // install prisma
 
 $ npx prisma // displays available prisma commands
@@ -226,7 +226,7 @@ With that said, there is a lot to cover and to make it easier for the reader, I 
 
 When running ```$ npx prisma init ``` a schema file will be created. The schema will be generated within the root of the project, but for this tutorial it will reside inside __server/database/__. 
 
-```
+```js
 
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
@@ -283,7 +283,7 @@ model Comment {
 
 In order for Nuxt to know how to communicate with Prisma -- with the current server folder structure in place -- a slight change is required within __package.json__ as it's own value outside of "devDependencies" and "dependencies".
 
-```
+```js
 ...
 "prisma": {
     "schema": "server/database/schema.prisma"
@@ -299,7 +299,7 @@ From the root directory, create a __server__ folder. And within the __server__ f
 
 Starting inside the __database__ directory, create a file: __client.ts__ and include the following code, a snippet that will initialize the Prisma Client.
 
-```
+```js
 // server/database/client.ts
 
 import pkg from "@prisma/client";
@@ -318,7 +318,7 @@ Next, create a __repositories__ folder inside the __database__ directory and add
 
 Looking over at the schema, there's a userId (Int) and authToken (string) value witin the *Session* model. Below these two values are referenced inside the data object of the __createSession__ method where *async await* is used to create a user session. You'll notice two other methods in this file, __getUserByAuthToken__ and __getSessionByAuthToken__ both of which pass a *authToken* string parameter; both functions do similar things, but the logic doesn't have to be re-written twice. When reading the __where__ clause inside __getUserByAuthToken__ a built-in Prisma method __findUnique__ is used to locate each user while logged into the application via bcrypt and uuid libraries. Then __getUserByAuthToken__ can be passed to __getSessionByAuthToken__ by creating a *user* variable and then return both ```authToken``` and ```user```. This is possible since *User* is passed to the Session model of the schema via a *@relation* as well as the fact *Session[]* is included with the *User* model. The ability to create connections like these is what makes working Prisma and Nuxt 3 so cool.
 
-```
+```js
 
 import { IUser } from "~~/types/IUser";
 import { ISession } from '~~/types/ISession';
@@ -355,7 +355,7 @@ Something similar can be found with __userRepository__ and both the *findUnique*
 
 With the __createUser__ function, the data object holds all the values associated with a user, which were made back in the *User* schema. Naturally, there is: username, name, email and password; there's also a *loginType*, which is set to *email* in the schema. You will find more _where_ and _select_ clauses here; _where_ takes the param that's passed into the original function and calls it, _select_ grabs other values the app will need.
 
-```
+```js
 
 import prisma from "../client";
 import { IUser } from '~/types/IUser';
@@ -422,7 +422,7 @@ Moving to the __services__ directory, create __userService.ts__, __sessionServic
 
 Validation is a nice-to-have addition for people using the application, so when implementing authentication it's a good practice if there are restrictions while interacting in the browser; checking length of passwords, using regular expressions, and insuring no 2 individuals have the exact same password are all examples of things that could and should be accounted for.
 
-```
+```js
 import { RegistrationRequest } from '~~/types/IRegistration';
 import { getUserByEmail, getUserByUserName } from '~/server/database/repositories/userRepository'
 
@@ -515,7 +515,7 @@ Earlier, in our types folder, both __InputValidation.ts__ and __FormValidation.t
 
 The __sanitizeUserForFrontend__ method hides any of the user state values so they aren’t exposed client-side; this will be called within __sessionService.ts__ as well as in __/server/api/auth/__ which will be discussed shortly.
 
-```
+```js
 import { IUser } from "~~/types/IUser";
 import { RegistrationRequest } from "~~/types/IRegistration";
 import { validate } from '~~/server/services/validator'
@@ -550,7 +550,7 @@ The Session Service takes in the _createSession_ and _getSessionByAuthToken_ wri
 Nuxt is packaged with _h3_, a utility framework, which provides methods for better code readibility. Here's a link to the npm package: https://www.npmjs.com/package/h3. If you've never seen or heard of it before it may be useful to skim through the docs as the purposes of some of the methods referenced in the code below might not be crystal clear every instance they are present in the code.
 
 
-```
+```js
 import { sanitizeUserForFrontend } from '~~/server/services/userService';
 import { CompatibilityEvent } from "h3"
 import { createSession, getSessionByAuthToken } from "~~/server/database/repositories/sessionRepository"
@@ -616,7 +616,7 @@ Applications with users usually come with a register functionality and this one 
 
 Note: The _bcrypt_ package provides password encryption so passwords cannot be read from malicious hackers.
 
-```
+```js
 import { CompatibilityEvent, sendError } from 'h3'
 import bcrypt from 'bcrypt'
 import { IUser } from '~/types/IUser';
@@ -652,9 +652,6 @@ export default async (event: CompatibilityEvent) => {
 }
 
 ```
-
-
-
 
 
 
