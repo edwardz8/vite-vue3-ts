@@ -1,6 +1,6 @@
 ---
 name: Nuxt 3 Full-Stack Guide 🏈
-thumbnail: /assets/rosterbox.png
+thumbnail: /assets/hockey-bench.JPG
 date: 2022-03-28
 description: How to develop Full-Stack Nuxt 3 apps with Prisma
 tags: ["vue", "nuxt", "prisma"]
